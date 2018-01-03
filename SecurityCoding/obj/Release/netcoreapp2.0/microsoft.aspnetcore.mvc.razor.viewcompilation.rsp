@@ -1,0 +1,12 @@
+C:\SecurityCoding\SecurityCoding
+--output-path=obj\Release\netcoreapp2.0\
+--application-name=SecurityCoding
+--content-root=C:\SecurityCoding\SecurityCoding
+--file=C:\SecurityCoding\SecurityCoding\Views\Calculate\Index.cshtml
+--file=C:\SecurityCoding\SecurityCoding\Views\Home\Contact.cshtml
+--file=C:\SecurityCoding\SecurityCoding\Views\Home\Files.cshtml
+--file=C:\SecurityCoding\SecurityCoding\Views\Home\Index.cshtml
+--file=C:\SecurityCoding\SecurityCoding\Views\Shared\Error.cshtml
+--file=C:\SecurityCoding\SecurityCoding\Views\Shared\_Layout.cshtml
+--file=C:\SecurityCoding\SecurityCoding\Views\_ViewImports.cshtml
+--file=C:\SecurityCoding\SecurityCoding\Views\_ViewStart.cshtml

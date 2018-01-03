@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<component>
+  <controller>../calculate</controller>
+  <title>作業一</title>
+  
+    <script>
+
+      var send = function () {
+      $("#state").text("傳送至伺服器...");
+      $("#spanMessage").text("");
+      $.ajax({
+      url: '/calculate/calculate',
+      type: 'post',
+      data: $("#formNumber").serialize(),
+      dataType: "json"
+      }).done(function (responseData) {
+      $("#state").text("伺服器回應：");
+      $("#spanMessage").text(responseData['message']);
+      $("#spanStandard").text(parseFloat(responseData['standard']).toFixed(2));
+      $("#spanAvg").text(parseFloat(responseData['average']).toFixed(2));
+      }).fail(function () {
+      $("#state").text("發生錯誤");
+      });
+      }
+
+      var numberOnly = function (event) {
+
+      var keycode = (event.which) ? event.which : event.keyCode;
+
+      if (keycode == 8 || keycode == 32 || keycode == 46)
+      return;
+
+      if (keycode	&lt; 48 || keycode > 57) {
+            event.preventDefault();
+        }
+    }
+    </script>
+  
+  <body>
+    <form id="formNumber" method="post" action="/calculate/Calculate">
+      <h3 style="text-align:center;">第一次作業</h3>
+      <p>請輸入數字：</p>
+      <textarea id="textAreaNumber" name="textAreaNumber" style="width:85%;max-width:95%;" rows="5" placeholder="請輸入數字並用空白鍵隔開" onkeypress="numberOnly(event);"></textarea>
+      <button style="margin-left:3px;" type="button" onclick="send();">計算</button>
+    </form>
+    <p>
+      <span id="state"></span>
+      <span class="error" id="spanMessage"></span>
+    </p>
+    <p>
+      平均數：<span id="spanAvg"></span>
+    </p>
+    <p>
+      標準差：<span id="spanStandard"></span>
+    </p>
+  </body>
+</component>

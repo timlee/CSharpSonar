@@ -1,0 +1,11 @@
+C:\Users\普皓群\Documents\Visual Studio 2017\Projects\安全性程式設計\安全性程式設計\bin\Release\netcoreapp2.0\安全性程式設計.deps.json
+C:\Users\普皓群\Documents\Visual Studio 2017\Projects\安全性程式設計\安全性程式設計\bin\Release\netcoreapp2.0\安全性程式設計.runtimeconfig.json
+C:\Users\普皓群\Documents\Visual Studio 2017\Projects\安全性程式設計\安全性程式設計\bin\Release\netcoreapp2.0\安全性程式設計.runtimeconfig.dev.json
+C:\Users\普皓群\Documents\Visual Studio 2017\Projects\安全性程式設計\安全性程式設計\bin\Release\netcoreapp2.0\安全性程式設計.dll
+C:\Users\普皓群\Documents\Visual Studio 2017\Projects\安全性程式設計\安全性程式設計\bin\Release\netcoreapp2.0\安全性程式設計.pdb
+C:\Users\普皓群\Documents\Visual Studio 2017\Projects\安全性程式設計\安全性程式設計\obj\Release\netcoreapp2.0\安全性程式設計.csprojResolveAssemblyReference.cache
+C:\Users\普皓群\Documents\Visual Studio 2017\Projects\安全性程式設計\安全性程式設計\obj\Release\netcoreapp2.0\安全性程式設計.csproj.CoreCompileInputs.cache
+C:\Users\普皓群\Documents\Visual Studio 2017\Projects\安全性程式設計\安全性程式設計\obj\Release\netcoreapp2.0\安全性程式設計.AssemblyInfoInputs.cache
+C:\Users\普皓群\Documents\Visual Studio 2017\Projects\安全性程式設計\安全性程式設計\obj\Release\netcoreapp2.0\安全性程式設計.AssemblyInfo.cs
+C:\Users\普皓群\Documents\Visual Studio 2017\Projects\安全性程式設計\安全性程式設計\obj\Release\netcoreapp2.0\安全性程式設計.dll
+C:\Users\普皓群\Documents\Visual Studio 2017\Projects\安全性程式設計\安全性程式設計\obj\Release\netcoreapp2.0\安全性程式設計.pdb

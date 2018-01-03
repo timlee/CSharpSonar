@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/css/main.css" />
+    <link rel="stylesheet" href="~/css/jquery-ui-1.12.1/jquery-ui.min.js" />
+    <script src="~/js/jquery-3.2.1.min.js"></script>
+    <script src="~/css/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    
+    <title>@ViewBag.Title - 安全性程式設計</title>
+</head>
+<body>
+
+    <script>
+        $(document).ready(function () {
+            
+            var state = new HistoryState(null);
+            state.replace();
+
+            window.onpopstate = function (event) {
+                var priorStateObj = event.state;
+                if ($(priorStateObj.content).length) {
+                    $("#mainDiv").html(priorStateObj.content);
+                    document.title = priorStateObj.title;
+                }
+            }
+
+            $(window).bind("resize", function (event) {
+                var flag = $("#dropdownMenu").is(":visible");
+                var width = $(window).width();
+                if (flag && width > 600) {
+                    $("#navTitle").css({ "margin-left": "47%" });
+                } else if (flag && width < 600){
+                    $("#navTitle").css({ "margin-left": "10%" });
+                } else{
+                    $("#navTitle").css({ "margin-left": "10%" });
+                }
+            });
+        });
+
+        var show = function (showID , url , hideID) {
+            var showComponent = $("#" + showID);
+            var hideComponent = $("#" + hideID);
+
+            $("#mainDiv").children(":not(#" + showID + ")").slideUp("fast").hide().remove();
+
+            var box_left = ($(window).width() - $('#' + showID).width()) / 2;
+            
+            if (hideComponent.lengt) {
+                hideComponent.slideUp();
+            }
+            if (!showComponent.length) {
+                load( showID, url );
+            }
+            else {
+                if (showComponent.is(":visible"))
+                    showComponent.fadeTo(75, 0.5, function () { $("#" + showID).fadeTo(75, 1); });
+                else
+                    showComponent.slideDown("fast");
+                new HistoryState(null).push();
+            }
+            
+        }
+
+        var load = function (showID, targetUrl, callback) {
+            locker = new ScreenLocker();
+            locker.lock();
+            $.ajax({
+                xhr: function () { 
+                    var request = new window.XMLHttpRequest();
+                    request.addEventListener("progress", function (event) {
+                        if (event.lengthComputable) {
+                            var percentComplete = event.loaded / event.total;
+                            locker.$message.text("下載中..." + (percentComplete * 100) + "%");
+                        }
+                    }, false);
+                    
+                    return request;
+                },
+                url: targetUrl,
+                dataType: "xml"
+            }).done(function (res) {
+                var script = $(document.createElement("script")).html($(res).find("script").text());
+
+                $(document.createElement("div"))
+                    .hide()
+                    .html($(res).find("body").html())
+                    .append(script)
+                    .attr({ "class": "div-big-center", "id": showID })
+                    .appendTo($("#mainDiv").first())
+                    .slideDown("fast");
+                locker.unlock();
+                new HistoryState(null, $(res).find("title").text() + " - 安全性程式設計", $(res).find("controller").text()).push();
+
+                }).fail(function (jqXHR, textStatus) {
+                    if (!$("errorDiv").length) {
+                        $(document.createElement("div"))
+                            .hide()
+                            .appendTo($("#mainDiv").first())
+                            .attr({ "class": "div-big-center", "id": "errorDiv" });
+                    }
+
+                    $("#errorDiv")
+                        .empty()
+                        .append("<h3 style='text-align:center;'>錯誤<h3>")
+                        .append(textStatus + ":" + jqXHR.status )
+                        .slideDown("fast");
+                    
+                    locker.unlock();
+                    
+                });
+        }
+        
+        var HistoryState = function (content, title, url){
+
+            if (content === null || content === undefined)
+                content = {};
+
+            this.url = url === undefined ? location.href : url;
+            this.title = title === undefined ? $(document).find("title").text() : title;
+            this.prev = content.prev === undefined ? window.location.href : content.prev;
+            this.time = content.time === undefined ? (new Date()).getTime() : content.time;
+            this.content = content.content === undefined ? $("#mainDiv").html() : content.content;
+
+            this.data = {
+                url: this.url,
+                title: this.title,
+                prev: this.prev,
+                time: this.time,
+                content: this.content
+            };
+
+            this.push = function () {
+                history.pushState(this.data, title, url);
+                document.title = this.title;
+            }
+
+            this.replace = function () {
+                history.replaceState(this.data, title, url);
+                document.title = this.title;
+            }
+        }
+
+        var ScreenLocker = function () {
+            $locker = $(document.createElement("div")).attr({ "class": "screen-overlay" });
+            $messageDiv = $(document.createElement("div")).attr({ "class": "top-message" });
+            this.$message = $(document.createElement("p")).attr({ "class": "top-message" }).text("讀取中...");
+
+            this.lock = function () {
+                this.$message.appendTo($messageDiv);
+                $locker.appendTo(document.body);
+                $messageDiv.appendTo(document.body);
+            }
+
+            this.unlock = function () {
+                $locker.remove();
+                $messageDiv.remove();
+            }
+        }
+
+    </script>
+
+    <nav id="navMenuBar">
+        <a class="menu-bar-title" id="navTitle" href="/">安全性程式設計</a>
+        <a class="menu-bar" href="/calculate" onclick="show('hw1' , '/hw1.xml' );return false;">作業一</a>
+        <a class="menu-bar" href="/files" onclick="show('files' , '/files.xml' );return false;">檔案下載</a>
+        <div class="menu-bar-dropdown" onclick="showDropDownMenu(this);return false;">
+            <div class="menu-bar-dropdown-icon1"></div>
+            <div class="menu-bar-dropdown-icon2"></div>
+            <div class="menu-bar-dropdown-icon3"></div>
+        </div>
+    </nav>
+
+    <script>
+        function showDropDownMenu(divMenuIcon) {
+            $("#navMenuBar").children(".menu-bar").fadeToggle("fast");
+            divMenuIcon.classList.toggle("menu-bar-dropdown-icon");
+            if ($("#dropdownMenu").is(":visible")) {
+                $("#navTitle").animate({ "margin-left": "10%" }, "fast");
+            } else if ($(window).width() > 600) {
+                $("#navTitle").animate({ "margin-left": "47%" }, "fast", function () { } );
+            }
+            $("#dropdownMenu").slideToggle("fast");
+        }
+    </script>
+
+    <div id="dropdownMenu" class="dropdownMenu" >
+        <div class="dropdownDiv">
+            <a class="dropdown-content" href="/calculate" onclick="show('hw1' , '/hw1.xml' );return false;">作業一</a>
+            <a class="dropdown-content" href="/home/files" onclick="show('files' , '/files.xml' );return false;">檔案下載</a>
+        </div>
+    </div>
+
+    <div id="mainDiv" style="width:100%;background: none;">
+        @RenderBody()
+    </div>
+
+    <footer>
+        <p>Copyright © 2017 高雄師範大學 - 軟體工程與管理學系 - 普皓群</p>
+    </footer>
+</body>
+</html>

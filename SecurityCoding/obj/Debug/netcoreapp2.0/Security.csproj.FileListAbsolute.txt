@@ -1,0 +1,22 @@
+C:\Users\普皓群\Documents\Visual Studio 2017\Projects\安全性程式設計\Security\bin\Debug\netcoreapp2.0\Security.deps.json
+C:\Users\普皓群\Documents\Visual Studio 2017\Projects\安全性程式設計\Security\bin\Debug\netcoreapp2.0\Security.runtimeconfig.json
+C:\Users\普皓群\Documents\Visual Studio 2017\Projects\安全性程式設計\Security\bin\Debug\netcoreapp2.0\Security.runtimeconfig.dev.json
+C:\Users\普皓群\Documents\Visual Studio 2017\Projects\安全性程式設計\Security\bin\Debug\netcoreapp2.0\Security.dll
+C:\Users\普皓群\Documents\Visual Studio 2017\Projects\安全性程式設計\Security\bin\Debug\netcoreapp2.0\Security.pdb
+C:\Users\普皓群\Documents\Visual Studio 2017\Projects\安全性程式設計\Security\obj\Debug\netcoreapp2.0\Security.csprojResolveAssemblyReference.cache
+C:\Users\普皓群\Documents\Visual Studio 2017\Projects\安全性程式設計\Security\obj\Debug\netcoreapp2.0\Security.csproj.CoreCompileInputs.cache
+C:\Users\普皓群\Documents\Visual Studio 2017\Projects\安全性程式設計\Security\obj\Debug\netcoreapp2.0\Security.AssemblyInfoInputs.cache
+C:\Users\普皓群\Documents\Visual Studio 2017\Projects\安全性程式設計\Security\obj\Debug\netcoreapp2.0\Security.AssemblyInfo.cs
+C:\Users\普皓群\Documents\Visual Studio 2017\Projects\安全性程式設計\Security\obj\Debug\netcoreapp2.0\Security.dll
+C:\Users\普皓群\Documents\Visual Studio 2017\Projects\安全性程式設計\Security\obj\Debug\netcoreapp2.0\Security.pdb
+C:\Users\PUPU\Qsync\Security\Security\bin\Debug\netcoreapp2.0\Security.deps.json
+C:\Users\PUPU\Qsync\Security\Security\bin\Debug\netcoreapp2.0\Security.runtimeconfig.json
+C:\Users\PUPU\Qsync\Security\Security\bin\Debug\netcoreapp2.0\Security.runtimeconfig.dev.json
+C:\Users\PUPU\Qsync\Security\Security\bin\Debug\netcoreapp2.0\Security.dll
+C:\Users\PUPU\Qsync\Security\Security\bin\Debug\netcoreapp2.0\Security.pdb
+C:\Users\PUPU\Qsync\Security\Security\obj\Debug\netcoreapp2.0\Security.csprojResolveAssemblyReference.cache
+C:\Users\PUPU\Qsync\Security\Security\obj\Debug\netcoreapp2.0\Security.csproj.CoreCompileInputs.cache
+C:\Users\PUPU\Qsync\Security\Security\obj\Debug\netcoreapp2.0\Security.AssemblyInfoInputs.cache
+C:\Users\PUPU\Qsync\Security\Security\obj\Debug\netcoreapp2.0\Security.AssemblyInfo.cs
+C:\Users\PUPU\Qsync\Security\Security\obj\Debug\netcoreapp2.0\Security.dll
+C:\Users\PUPU\Qsync\Security\Security\obj\Debug\netcoreapp2.0\Security.pdb
